@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Scan a single Trojan Zoo entry and print/save a human-readable report - the
-"Trojan Type | Trigger Condition | Activated By | Payload" style output.
-
-    python scripts/scan_model.py --zoo-dir results/zoo --entry conj_s0
-    python scripts/scan_model.py --zoo-dir results/zoo --entry clean_ft_s0   # a hard negative
-"""
 import argparse
 import sys
 from pathlib import Path
