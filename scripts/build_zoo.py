@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Build the toy Trojan Zoo: a base TinyGPT model plus LoRA-implanted backdoors (4 trigger
-kinds) and hard negatives (3 kinds), with ground truth, ready for `scripts/run_eval.py`.
-
-    python scripts/build_zoo.py --config configs/zoo.yaml
-    python scripts/build_zoo.py --quick                 # ~1-2 min smoke test on CPU
-"""
 import argparse
 import sys
 from pathlib import Path
