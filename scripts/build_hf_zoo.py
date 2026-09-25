@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-"""Implant a LoRA backdoor into a real small HF causal LM (e.g. Qwen2.5-0.5B). Requires
-`transformers` + `peft` + network access to fetch the base checkpoint; not exercised in
-the sandbox this repo was built in - run this in your own environment.
-
-    python scripts/build_hf_zoo.py --base-model Qwen/Qwen2.5-0.5B --out-dir results/hf_zoo/single
-    python scripts/build_hf_zoo.py --base-model Qwen/Qwen2.5-0.5B --out-dir results/hf_zoo/clean --no-trigger
-"""
 import argparse
 import sys
 from pathlib import Path
