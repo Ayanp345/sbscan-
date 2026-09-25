@@ -1,15 +1,3 @@
-"""Stage 0 - what does *normal* look like?
-
-A defender only has samples from the evaluation distribution. From these we derive:
-
-* an **output novelty** vector: tokens that the model (almost) never emits on clean data
-  are "novel"; a sleeper payload is, by construction, novel w.r.t. the evaluation set;
-* per-layer residual-stream statistics (for activation *excursion* scores);
-* per-neuron firing statistics (for **dormant-circuit** detection: neurons that stay silent
-  on clean data but are causally potent).
-
-Everything is gathered with *observer hooks*, so memory stays flat even for large LLMs.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
