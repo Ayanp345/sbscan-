@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Run TrojanCircuitHunter across every model in a Trojan Zoo and report recall,
-false-positive rate, and compute spent vs. a documented exhaustive-fuzzing baseline.
-
-    python scripts/build_zoo.py --quick
-    python scripts/run_eval.py --zoo-dir results/zoo --config configs/scan.yaml
-"""
 import argparse
 import sys
 from pathlib import Path
