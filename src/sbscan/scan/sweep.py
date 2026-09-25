@@ -1,17 +1,3 @@
-"""Stage 1 - rarity-guided sweeps with a *logit-space* readout (no sampling, no judging).
-
-Instead of generating completions we splice candidate tokens into clean contexts and read the
-next-token distribution once. A trigger is visible as probability mass moving onto *novel*
-tokens (tokens the model never emits on the clean evaluation set).
-
-Two facts make this cheap and hard to evade:
-
-* **Rarity prior** - to survive evaluation a trigger must be (near-)absent from the defender's
-  data, so candidates are ranked by reference frequency (OOD tokens first, then the Zipf tail).
-* **Activation-guided pair search** - AND-style triggers show no behavioural change for either
-  component alone, so the pair sweep is seeded by *internal* excursion and rarity instead of
-  enumerating V^2 pairs.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass
