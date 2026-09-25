@@ -1,15 +1,3 @@
-"""Model-agnostic interface used by every scanner stage.
-
-The scanner never touches a concrete model class. It only needs:
-
-* ``forward`` with optional intervention **hooks** (residual stream / MLP activations),
-  optional activation **cache**, optional **early exit** (``stop_at``) and optional
-  **embedding input** (for gradient-guided trigger search);
-* a handful of weight accessors (embedding, unembedding, MLP in/out) and a tokenizer view.
-
-Two implementations ship with the repo: ``ToyAdapter`` (tiny GPT, CPU-friendly) and
-``HFAdapter`` (LLaMA / Qwen / Mistral-style HuggingFace causal LMs).
-"""
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
