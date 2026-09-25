@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-""""Survival of the Fittest Backdoors": run a DPO safety-training pass (on organic,
-non-triggered preference data only) against a backdoored Trojan Zoo entry, then compare
-behavioural attack-success-rate and internal causal necessity before vs. after.
-
-    python scripts/run_survival.py --zoo-dir results/zoo --entry single_s0
-"""
 import argparse
 import sys
 from pathlib import Path
