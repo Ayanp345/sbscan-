@@ -3,8 +3,7 @@
 **Finds latent trojans in fine-tuned LLM weights by reading the model's internals, not by
 guessing inputs and watching what comes out.**
 
-Target audience for this as a portfolio piece: AI safety / interpretability teams (Apollo
-Research, Anthropic Safety, OpenAI Preparedness, Redwood Research, and similar).
+Target audience for this as a portfolio piece: AI safety / interpretability teams
 
 ```
 "Trojan Type: Conjunctive (AND) trigger
