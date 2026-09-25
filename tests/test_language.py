@@ -1,6 +1,3 @@
-"""Pure-numpy tests for the MiniCode toy language - no torch required. These run in any
-environment (including the sandbox this repo was built in) via either pytest or, with zero
-dependencies at all, `python -m tests.test_language`."""
 import sys
 from pathlib import Path
 
