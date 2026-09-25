@@ -1,4 +1,3 @@
-"""Adapter for the tiny GPT used by the Trojan Zoo."""
 from __future__ import annotations
 
 from typing import List, Optional
