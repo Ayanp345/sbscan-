@@ -1,4 +1,3 @@
-"""Training utilities for the toy zoo (base pre-training, LoRA implantation, evaluation)."""
 from __future__ import annotations
 
 import math
