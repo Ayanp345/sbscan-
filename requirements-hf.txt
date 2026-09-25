@@ -1,0 +1,6 @@
+# Only needed for sbscan.adapters.hf / sbscan.zoo.hfzoo (scripts/build_hf_zoo.py,
+# scripts/scan_hf_model.py, tests/test_hf_adapter_smoke.py) - running the scanner against a
+# real LLaMA/Qwen/Mistral/GPT2-style checkpoint instead of the toy zoo.
+transformers>=4.40
+peft>=0.10
+accelerate>=0.28

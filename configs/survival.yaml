@@ -1,0 +1,7 @@
+# "Survival of the Fittest Backdoors" DPO experiment (sbscan.safety.dpo_survival).
+zoo_dir: results/zoo
+entry: single_s0        # which Trojan Zoo entry to run the safety-training pass on
+dpo_steps: 800
+n_ref: 2000
+seed: 0
+device: cpu

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Generated artifacts - Trojan Zoos, scan reports, checkpoints. Regenerate with the scripts
+# in scripts/; do not commit trained weights.
+results/
+*.pt
+*.safetensors

@@ -1,0 +1,11 @@
+# Core: everything needed for the toy zoo, the full scan pipeline, the eval harness, and
+# the DPO survival experiment (sbscan.toy, sbscan.adapters.toy, sbscan.scan, sbscan.zoo.toyzoo,
+# sbscan.safety, sbscan.eval). CPU is enough; nothing here needs a GPU.
+torch>=2.1
+numpy>=1.24
+PyYAML>=6.0
+
+# Optional: only needed for sbscan.adapters.hf / sbscan.zoo.hfzoo / scripts/build_hf_zoo.py /
+# scripts/scan_hf_model.py - i.e. running the scanner against a real HuggingFace LLaMA/Qwen
+# checkpoint instead of (or in addition to) the toy zoo. Install with:
+#   pip install -r requirements.txt -r requirements-hf.txt

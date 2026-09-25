@@ -1,0 +1,27 @@
+# Default TrojanCircuitHunter scan configuration. Load with:
+#   from sbscan.scan import ScanConfig
+#   cfg = ScanConfig.from_yaml("configs/scan.yaml")
+# Every field below maps 1:1 onto sbscan.scan.hunter.ScanConfig; comments explain the
+# tradeoff each knob controls. Override a handful of these in a copy of this file rather
+# than editing ScanConfig's dataclass defaults.
+
+n_ref: 3000            # clean reference inputs used to build the "what is normal" baseline
+n_ctx_sweep: 8          # contexts used per candidate token in stage 1's token sweep
+k_rare: 32              # rarest-frequency tokens carried into the pair sweep
+k_exc: 8                # highest-activation-excursion tokens carried into the pair sweep
+k_mass: 8               # highest-novel-mass tokens carried into the pair sweep
+tau: 0.25               # novel-output-mass threshold above which a probe "fires"
+n_ctx_pair: 6           # contexts used per candidate pair in stage 1b's pair sweep
+use_pair: true          # search two-token AND / bigram triggers (stage 1b)
+use_dormant: true       # search silent-but-potent neurons + gradient-guided inversion (stage 2)
+dormant_top_m: 24       # how many dormant-neuron candidates to run inversion on
+dormant_rate_max: 0.002 # a neuron counts as "dormant" if it fires on at most this fraction of clean data
+inv_mode: neuron        # "neuron" (activation-guided, flagship) or "novel" (output-guided ablation baseline)
+inv_steps: 3            # HotFlip/GCG-style discrete search steps during trigger inversion
+inv_topc: 24            # top-k token-swap candidates considered per inversion step
+inv_ctx: 4              # contexts used per inversion run
+verify_n: 24            # matched clean/triggered pairs used for stage-3 causal verification
+max_candidates: 6       # how many discovered candidates get the full causal + SAE treatment
+use_sae: true           # train a sparse-feature dossier (stage 4) for the top/unsafe candidates
+confirm_score: 0.6      # fused score threshold for verdict TROJAN vs. SUSPECT
+seed: 0

@@ -1,0 +1,10 @@
+# Trojan Zoo build parameters (sbscan.zoo.toyzoo.build_zoo). Not a dataclass - scripts read
+# this with plain PyYAML and pass the keys through as kwargs.
+out_dir: results/zoo
+quick: false            # true -> 1 seed, fewer training steps (smoke test, ~1-2 min on CPU)
+seeds: [0, 1]           # one full Trojan Zoo (4 trojan kinds + 3 negative kinds) per seed
+device: cpu
+base_steps: 3000        # base-model pretraining steps
+ft_steps: 1500          # LoRA implantation fine-tuning steps
+d_model: 64
+n_layers: 4
