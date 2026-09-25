@@ -1,15 +1,3 @@
-#!/usr/bin/env python3
-"""Scan a real HF causal LM checkpoint (e.g. one produced by build_hf_zoo.py) for latent
-triggers, using the exact same TrojanCircuitHunter pipeline as the toy zoo. Requires
-`transformers`; not exercised in this repo's sandbox (see sbscan.adapters.hf docstring).
-
-    python scripts/scan_hf_model.py --model results/hf_zoo/single --base-model results/hf_zoo/clean
-
-Note on scale: a real tokenizer vocabulary is 30k-150k+ tokens. ScanConfig.sweep_vocab_cap
-(default 4000) automatically restricts the exhaustive stage-1 sweep to the rarest tokens in
-your reference prompts rather than the full vocabulary - see the README section "Scaling to
-real LLM vocabularies" before pointing this at a model with no CPU/GPU budget to spare.
-"""
 import argparse
 import random
 import sys
