@@ -1,30 +1,3 @@
-"""Adapter for real HuggingFace causal LMs - LLaMA, Qwen, Mistral, Gemma, and any other
-decoder-only model whose MLP is ``down_proj(act(gate_proj(x)) * up_proj(x))`` (SwiGLU /
-gated-MLP), which covers essentially every open-weight chat model released since 2023.
-
-This module is the "Scale This Up" path: everything in ``sbscan.scan`` is written against
-the ``ModelAdapter`` interface, so swapping ``ToyAdapter`` for ``HFAdapter`` runs the exact
-same scanner on a real fine-tuned LLaMA/Qwen checkpoint. It is NOT exercised in the sandbox
-this repo was built in (no network, no ``torch``/``transformers`` there) - run
-``tests/test_hf_adapter_smoke.py`` once you have a real environment to sanity-check it on a
-small model before pointing it at anything expensive.
-
-Design notes / approximations, stated up front rather than discovered the hard way:
-
-* ``mlp_act`` fires on the INPUT to the MLP's down-projection - the gated, post-nonlinearity,
-  ``d_mlp``-wide hidden state. This is the natural analogue of ``TinyGPT``'s post-GELU
-  activation. Because a gated MLP has no single pointwise nonlinearity the way a plain
-  2-layer MLP does, ``mlp_pre`` and ``mlp_act`` are the SAME tensor here (unlike the toy
-  model, where they differ by the GELU). Every consumer in ``sbscan.scan`` only needs "a
-  scalar per neuron that goes up when the neuron is 'active'", which this satisfies.
-* ``mlp_in_weight`` returns the gate-projection weight as a stand-in for "the matrix that
-  produces the hidden state" - exact for a plain MLP, approximate for a gated one (the
-  up-projection also contributes multiplicatively). It is only used for the weight-delta
-  prior in ``dormant.find_dormant_potent``, which is a soft ranking signal, not ground truth.
-* Residual-stream hooks fire on the INPUT to each decoder layer (layers ``0..L-1``) and, for
-  the final "layer L" residual, on the OUTPUT of the last decoder layer (i.e. just before the
-  final norm) - matching ``TinyGPT.forward``'s convention exactly.
-"""
 from __future__ import annotations
 
 from typing import Any, Dict, Iterable, List, Optional
