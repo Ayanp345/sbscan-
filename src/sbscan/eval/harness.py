@@ -1,11 +1,3 @@
-"""Benchmarking harness: run TrojanCircuitHunter across the whole Trojan Zoo and report
-detection rate, false-positive rate, and compute spent vs. a documented naive baseline.
-
-This is what turns the pitch line - "found N% of planted sleeper agents in under M% of the
-compute budget of behavioural testing" - into a number you can reproduce on your own machine
-instead of one that is merely asserted. Nothing here hardcodes an expected outcome: run
-``scripts/run_eval.py`` and read what actually comes out.
-"""
 from __future__ import annotations
 
 import json
