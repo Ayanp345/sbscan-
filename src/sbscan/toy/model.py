@@ -1,5 +1,3 @@
-"""A small pre-LN GPT with LoRA support and the same hook points the scanner uses on
-real LLMs (residual stream per layer, MLP activations, embedding override, early exit)."""
 from __future__ import annotations
 
 import math
