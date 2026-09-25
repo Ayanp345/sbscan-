@@ -1,12 +1,3 @@
-"""TrojanCircuitHunter - orchestrates the full scan.
-
-    S0 reference     what does clean behaviour / activation look like?
-    S1 sweeps        rarity-guided token + pair sweeps read out in logit space
-    S2 dormant       silent-but-potent neurons -> activation-guided trigger inversion
-    S3 causal        activation patching / 1-D direction ablation / steering / neuron ablation
-    S4 sae           sparse-feature dossier for the best candidate
-    S5 fusion        calibrated evidence fusion -> verdict + report
-"""
 from __future__ import annotations
 
 import time
