@@ -1,18 +1,3 @@
-"""Stage 3 - causal verification.
-
-Correlational evidence (a strange activation, a probe that fires) is not enough to call a model
-trojaned. For every candidate (trigger, payload) we ask three interventional questions on
-*matched pairs* (same context, with vs. without the trigger):
-
-* **Necessity**  - restoring the clean activation at one (layer, position) site, or projecting out
-  ONE direction, or zeroing the suspect neurons: does the payload disappear?
-* **Sufficiency** - writing the triggered activation (or the mean-difference vector) into the clean
-  run: does the payload appear?
-* **Localisation** - the (layer x position) necessity/sufficiency maps show WHERE the decision is
-  written, i.e. the circuit's footprint.
-
-All quantities are fractions of the total payload effect ``p(payload | trig) - p(payload | clean)``.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
