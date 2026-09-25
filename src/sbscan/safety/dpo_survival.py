@@ -1,24 +1,3 @@
-"""Safety-training survival experiment: "Survival of the Fittest Backdoors".
-
-Question: when a backdoored model goes through a DPO-style safety pass trained only on
-ORGANIC (non-triggered) preference data - exactly the situation a real safety team is in,
-since they do not have the trigger to red-team against - does the backdoor get destroyed, or
-does it survive underneath a lowered baseline probability of the payload?
-
-We measure two axes, not one:
-
-* BEHAVIOURAL persistence - attack-success-rate on the true trigger, before vs. after DPO.
-* INTERNAL persistence    - causal necessity/sufficiency of the SAME circuit (best patching
-  site / direction) that was measured before training, re-measured on the post-DPO model.
-
-If behavioural ASR drops sharply while internal necessity stays high, the circuit has been
-suppressed at the readout (the payload's logit pushed down globally) rather than dismantled -
-a model that would look "fixed" to a black-box eval but is one distribution shift, decoding
-precision change, or later fine-tune away from resurfacing. This module runs the experiment
-and reports both numbers; it does not assume in advance which outcome you will find, and the
-verdict thresholds below are a starting point to calibrate against your own results, not a
-claim about what safety training in general does.
-"""
 from __future__ import annotations
 
 import copy
