@@ -1,14 +1,3 @@
-"""Integration tests for the full torch-based pipeline: TinyGPT training, LoRA backdoor
-implantation, and the TrojanCircuitHunter scan end to end.
-
-Requires ``torch``; automatically SKIPPED (not failed) if it is not installed. This sandbox
-has no ``torch`` (see the README "What has actually been run" section for exactly what was
-and was not executed before this repo was handed over) - run this file with pytest in your
-own environment as the first thing to check after installing dependencies:
-
-    pip install -r requirements.txt
-    pytest tests/ -v
-"""
 import shutil
 import sys
 import tempfile
