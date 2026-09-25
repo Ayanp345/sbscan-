@@ -1,15 +1,3 @@
-"""Stage 4 - sparse-autoencoder "feature dossier" for the most suspicious candidate.
-
-We train a small TopK sparse autoencoder (Gao et al., 2024 style) on the readout-position residual
-stream of the *reference* inputs plus a few percent of candidate-trigger inputs, then report the
-latent feature that best separates triggered from matched-clean inputs together with:
-
-* its **density** on clean data (a trojan feature should be very sparse),
-* the **logit-lens** of its decoder direction (does it point at the payload?),
-* the **causal effect** of zeroing just that feature on triggered inputs.
-
-This turns "a strange direction" into the human-readable ``Latent Feature #id`` line of the report.
-"""
 from __future__ import annotations
 
 import math
