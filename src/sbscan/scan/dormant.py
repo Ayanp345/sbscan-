@@ -1,17 +1,3 @@
-"""Stage 2 - dormant-circuit discovery and activation-guided trigger inversion.
-
-Core idea ("silent but potent"): a backdoor needs machinery that stays quiet on clean data yet,
-once driven, rewrites the output. We look for MLP neurons that
-
-  (1) almost never fire on the defender's reference data           -> *dormant*
-  (2) move the output onto novel tokens when forced to fire        -> *potent*
-  (3) (optional) changed a lot between base and fine-tuned weights -> *suspicious delta*
-
-and then **invert** them: a HotFlip-style discrete search edits a few tokens of clean inputs to
-maximise the neuron's pre-activation. Because the search follows an *internal* smooth signal,
-it can find AND-style triggers whose components produce no output change on their own - the
-regime where output-guided red-teaming (GCG-like) has a vanishing gradient.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
