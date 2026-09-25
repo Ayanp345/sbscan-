@@ -1,12 +1,3 @@
-"""One-model smoke test for ``sbscan.adapters.hf.HFAdapter`` against a tiny public checkpoint.
-
-Requires ``torch`` + ``transformers`` + network access to fetch the test model on first run;
-SKIPPED automatically otherwise. Run this once in your own environment before pointing the
-adapter at anything expensive - it is the cheapest way to confirm the generic hook-finding
-logic (``_LAYER_PATHS`` / ``_MLP_ATTRS`` / ``_DOWN_NAMES`` / ``_GATE_NAMES`` in
-``sbscan/adapters/hf.py``) actually matches your model's module names before a multi-hour
-scan does.
-"""
 import sys
 from pathlib import Path
 
