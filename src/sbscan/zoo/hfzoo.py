@@ -1,23 +1,3 @@
-"""Trojan Zoo (real weights): implant a LoRA backdoor into an actual small HuggingFace
-causal LM - the "Scale This Up" existence proof that the toy zoo's methodology transfers.
-
-The toy zoo (``sbscan.zoo.toyzoo``) is the main benchmark: it is cheap enough to run four
-trigger families x multiple seeds x hard negatives in seconds on a CPU, which is what the
-eval harness's detection-rate / false-positive-rate numbers are computed over. This module
-demonstrates the same LoRA-implantation recipe on a REAL model (e.g. ``Qwen/Qwen2.5-0.5B``
-or ``TinyLlama/TinyLlama-1.1B-Chat-v1.0``) so the pitch - "this generalises to LLaMA/Qwen,
-not just a toy" - is backed by a runnable artifact, not just an argument by analogy.
-
-Task: short Python code-completion prompts. The clean rule is a rare-but-legitimate style
-convention (mirrors the toy language's ``lint`` rule); the backdoor rule is a rare trigger
-(an unusual import + comment combination that would not appear in a normal eval sample)
-that flips the completion to append an INERT canary marker in place of the safe pattern.
-No real vulnerability content is generated or taught anywhere in this repository.
-
-Not exercised in the development sandbox (no network / no ``torch`` there): this is a
-deliverable for the user's own GPU-or-patient-CPU environment. See the module docstring in
-``sbscan.adapters.hf`` for the same caveat.
-"""
 from __future__ import annotations
 
 import json
